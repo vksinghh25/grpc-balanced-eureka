@@ -23,6 +23,8 @@ Find GRPC service using Netflix Eureka Server
 
 ### Build and Run Hello Service
 
+>mvn clean install
+
 > java -jar -Dspring.profiles.active=hello-service-1 target/hello-service-0.0.1-SNAPSHOT.jar
 
 > java -jar -Dspring.profiles.active=hello-service-2 target/hello-service-0.0.1-SNAPSHOT.jar
