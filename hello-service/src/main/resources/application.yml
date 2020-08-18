@@ -1,16 +1,55 @@
 spring:
+  profiles: hello-service-1
   application:
     name: hello-service
 
 server:
-  port: 8000
+  port: 8001
 
 grpc:
-  port: 6000
+  port: 6001
 
 eureka:
   instance:
     nonSecurePort: ${grpc.port}
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer-1-eureka-server.com:9001/eureka, http://peer-2-eureka-server.com:9002/eureka, http://peer-3-eureka-server.com:9003/eureka
+
+---
+spring:
+  profiles: hello-service-2
+  application:
+    name: hello-service
+
+server:
+  port: 8002
+
+grpc:
+  port: 6002
+
+eureka:
+  instance:
+    nonSecurePort: ${grpc.port}
+  client:
+    serviceUrl:
+      defaultZone: http://peer-1-eureka-server.com:9001/eureka, http://peer-2-eureka-server.com:9002/eureka, http://peer-3-eureka-server.com:9003/eureka
+
+---
+spring:
+  profiles: hello-service-3
+  application:
+    name: hello-service
+
+server:
+  port: 8003
+
+grpc:
+  port: 6003
+
+eureka:
+  instance:
+    nonSecurePort: ${grpc.port}
+  client:
+    serviceUrl:
+      defaultZone: http://peer-1-eureka-server.com:9001/eureka, http://peer-2-eureka-server.com:9002/eureka, http://peer-3-eureka-server.com:9003/eureka
