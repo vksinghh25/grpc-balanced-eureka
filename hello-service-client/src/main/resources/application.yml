@@ -2,4 +2,4 @@ eureka:
   client:
     register-with-eureka: false
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer-1-eureka-server.com:9001/eureka, http://peer-2-eureka-server.com:9002/eureka, http://peer-3-eureka-server.com:9003/eureka
